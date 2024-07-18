@@ -1,0 +1,260 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Centralizar todo o conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f3f3; /* Cor de fundo geral */
+  color: #333; /* Cor do texto padrão */
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+label,
+input,
+button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+  width: 100%; /* Largura dos inputs */
+  padding: 10px;
+  border: 1px solid #ccc; /* Cor da borda padrão */
+  border-radius: 5px; /* Borda arredondada */
+  box-sizing: border-box; /* Considerar padding e border no tamanho total */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px; /* Borda arredondada */
+  padding: 10px 20px; /* Espaçamento interno */
+  color: #ffffff; /* Cor do texto */
+  background-color: #ed7117; /* Cor de fundo */
+  border: none; /* Remover borda */
+  transition: background-color 0.3s; /* Transição suave da cor de fundo */
+}
+
+button:hover {
+  background-color: #333; /* Cor de fundo ao passar o mouse */
+  color: #ed7117; /* Mudança de cor do texto ao passar o mouse */
+}
+
+#lista {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.ligacao-item {
+  display: flex;
+  align-items: center;
+}
+
+.feito-button {
+  margin-left: 10px;
+}
+
+.editar-button {
+  margin-left: 10px;
+}
+
+/* Estilos para a caixa de texto */
+#caixaTexto {
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index: 1001; /* Z-index menor para ficar abaixo do botão */
+  width: 600px;
+  min-height: 500px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+#caixaTexto textarea {
+  width: calc(100% - 40px); /* Considerando o padding */
+  height: calc(100% - 100px); /* Ajuste conforme necessário */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* Permitir redimensionamento vertical */
+  margin-bottom: 10px;
+}
+
+#caixaTexto button {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #ed7117;
+  color: #ffffff;
+  border: none;
+}
+
+#caixaTexto button:hover {
+  background-color: #333;
+}
+.toggle-button {
+  cursor: pointer;
+  border-radius: 5px; /* Borda arredondada */
+  padding: 10px 20px; /* Espaçamento interno */
+  color: #ffffff; /* Cor do texto */
+  background-color: #ed7117; /* Cor de fundo */
+  border: none; /* Remover borda */
+  transition: background-color 0.3s; /* Transição suave da cor de fundo */
+}
+
+.toggle-button.active {
+  background-color: black;
+}
+header {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 5px;
+  gap: 5px;
+  padding-right: 10px;
+}
+
+#tabelaMeta {
+  position: fixed; /* Posição fixa para manter no centro da tela */
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Fundo branco para a tabela */
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 999;
+}
+
+#tabelaProjecao {
+  position: fixed; /* Posição fixa para manter no centro da tela */
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Fundo branco para a tabela */
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 999;
+}
+
+#tabelaCampanha {
+  position: fixed; /* Posição fixa para manter no centro da tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Fundo branco para a tabela */
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 1001;
+}
+
+#vencimentos {
+  position: fixed; /* Posição fixa para manter no centro da tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Fundo branco para a tabela */
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 1001;
+}
+
+#links {
+  position: fixed; /* Posição fixa para manter no centro da tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Fundo branco para a tabela */
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 1001;
+}
+
+fieldset {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+
+.footer-content {
+  display: inline-block;
+}
+
+.symbol {
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+.text {
+  font-size: 1em;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 5px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+table input {
+  width: 80px;
+  height: 20px;
+  text-align: center;
+}
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hide {
+  display: none;
+}

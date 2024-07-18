@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retorno Alice</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<header>
+    <button id="botaoAbrir" class="toggle-button" onclick="toggleCaixaTexto(this)">Selo</button>
+    <button id="buttonProjecaoMeta" class="toggle-button" onclick="toggleProjecao(this)">Projeção</button>
+    <button id="buttonMetaSemanal" class="toggle-button" onclick="toggleTabela(this)">Metas</button>
+    <button id="buttonCampanha" class="toggle-button hide" onclick="toggleCampanha(this)">Campanha</button>
+	<a href="R:\CARTEIRAS\VENDAS\TIM MIGRAÇÃO\Equipe Alice\Alice Supervisora\aplicativo retorno\promocao.pdf" target="_blank">
+        <button class="hide">Promoção Dia</button>
+    </a>
+	<a href="R:\CARTEIRAS\VENDAS\TIM MIGRAÇÃO\Equipe Alice\Alice Supervisora\aplicativo retorno\escala-sabado.pdf" target="_blank">
+        <button>Escala Sáb</button>
+    </a>
+	<a href="R:\CARTEIRAS\VENDAS\TIM MIGRAÇÃO\Equipe Alice\Alice Supervisora\aplicativo retorno\pausa-mes.pdf" target="_blank">
+        <button>Escala Mês</button>
+    </a>
+	<a href="R:\CARTEIRAS\VENDAS\TIM MIGRAÇÃO\Equipe Alice\Alice Supervisora\aplicativo retorno\argumentacao.html" target="_blank">
+        <button>Argumentação</button>
+    </a>
+	<a href="R:\CARTEIRAS\VENDAS\TIM MIGRAÇÃO\Equipe Alice\Alice Supervisora\aplicativo retorno\controlevendas.html" target="_blank">
+        <button>Vendas</button>
+    </a>
+	    <button id="buttonLinks" class="toggle-button" onclick="toggleLinks(this)">Links</button>	
+	    <button id="buttonVencimento" class="toggle-button" onclick="toggleVencimento(this)">Vencimento</button>
+	<a href="https://forms.gle/P3uV8SypMoAuRUJx5" target="_blank">
+        <button>FeedBack</button>
+    </a>
+<div id="tabelaMeta" style="display: none;">
+    <table>
+	<thead>
+	<tr>
+            <th colspan="3">Meta Semanal</th>
+        </tr>
+        <tr>
+            <th colspan="2">Vendas</th>
+            <th>Valor</th>
+        </tr>
+	</thead>
+        <tbody>
+            <tr>
+                <td colspan="2">35</td>
+                <td>R$30,00</td>
+            </tr>
+            <tr>
+                <td colspan="2">45</td>
+                <td>R$40,00</td>            
+            </tr>
+            <tr>
+                <td colspan="2">55</td>
+                <td>R$50,00</td>
+            </tr>
+	    <tr>
+                <td colspan="2">65</td>
+                <td>R$60,00</td>
+            </tr>
+            <!-- Adicione mais linhas conforme necessário -->
+        </tbody>
+	<tr>
+            <th colspan="3">Meta Mês</th>
+        </tr>
+	</thead>
+        <tbody>
+            <tr>
+                <td>130</td>
+                <td>3x</td>
+                <td>R$390,00</td>
+            </tr>
+            <tr>
+                <td>150</td>
+                <td>4x</td>
+                <td>R$600,00</td>
+            </tr>
+            <tr>
+                <td>170</td>
+                <td>5x</td>
+                <td>R$850,00</td>
+            </tr>
+	   <!-- Adicione mais linhas conforme necessário -->
+        </tbody>
+    </table>
+</div>
+<div id="tabelaProjecao" style="display: none;">
+    <table>
+	<thead>
+	<tr>
+            <th colspan="2">Resultado dia a dia</th>
+        </tr>
+	</thead>
+        <tbody>
+            <tr>
+                <th>Dias Mês</th>
+                <td><input type="number" id="diasMes" onchange="calcularResultados()"></td>
+	    </tr>
+	    <tr>
+                <th>Dias Trabalhados</th>
+                <td><input type="number" id="diasTrabalhados" onchange="calcularResultados()"></td>
+	    </tr>
+	    <tr>
+		<th>Dias à Trabalhar</th>
+                <td id="diasRestantes">0</td>
+	    </tr>
+	    <tr>
+		<th>Meta Operação</th>
+                <td><input type="number" id="metaOperacao" onchange="calcularResultados()"</td>
+	    </tr>
+	    <tr>
+		<th>Vendas Aceitas</th>
+                <td><input type="number" id="vendasAceitas" onchange="calcularResultados()"></td>
+	    </tr>
+	    <tr>
+		<th>Média Operacional</th>
+                <td id="mediaOperacional">0</td>
+	    </tr>
+	    <tr>
+		<th>Vendas Faltantes</th>
+                <td id="vendasFaltantes">0</td>
+	    </tr>
+	    <tr>
+		<th>Vendas Faltantes/Dia</th>
+                <td id="vendasFaltantesDia">0</td>
+	    </tr>
+	    <tr>
+		<th>Projeção</th>
+                <td id="projecao">0</td>
+            </tr>
+	   <!-- Adicione mais linhas conforme necessário -->
+        </tbody>
+    </table>
+</div>
+<div id="tabelaCampanha" style="display: none;">
+    <table>
+	<thead>
+	<tr>
+            <th colspan="2">CAMPANHA ATÉ DIA 29-05</th>
+        </tr>
+	</thead>
+        <tbody>
+	    <tr>
+            <th>1º lugar</th>
+	    <td>Quem estiver o maior número de vendas a partir de 120 conectadas no mês ira folgar automaticamente.</td>
+            </tr>
+            <tr>
+		<th>2º lugar</th>
+                <td>Quem estiver com à partir de 50 vendas aceitas do dia 16/05 até 29/05. Obs: Se empatar irei fazer sorteio.</td>
+            </tr>
+	    <tr>
+            <th  rowspan="2">Requesitos</th>
+	    <td>* Não pode ter faltas injutificadas no mês.</td>
+            </tr>
+	    <tr>
+	    <td>* Precisamos estar com a meta da equipe de 3200 vendas conectadas.</td>
+	    </tr>
+        </tbody>
+	</thead>
+    </table>
+</div>
+<div id="vencimentos" style="display: none;">
+    <table>
+	<thead>
+	<tr>
+            <th>Vencimento Ideal</th>
+        </tr>
+	</thead>
+        <tbody>
+	    <tr>
+            <td class="resultado" id="resultado1"></td>
+            </tr>
+        </tbody>
+	</thead>
+        <thead>
+	<tr>
+            <th>Vencimento Opcional</th>
+        </tr>
+	</thead>
+        <tbody>
+	    <tr>
+            <td class="resultado" id="resultado2"></td>
+            </tr>
+        </tbody>
+	</thead>
+    </table>
+</div>
+<div id="links" style="display: none;">
+    <table>
+	<thead>
+	<tr>
+            <th colspan="1">LINKS</th>
+        </tr>
+	<tr>
+            <th colspan="1">Dica: se clicar segurando o ctrl abre sem sair da tela</th>
+        </tr>
+	</thead>
+        <tbody>
+	    <tr>
+	    <th><a href="http://10.0.123.145:8501/" target="_blank">TMC 1</a></th>
+            </tr>
+	    <tr>
+            <th><a href="http://10.0.123.145:8502/" target="_blank">TMC 2</a></th>
+            </tr>
+            <tr>
+            <th><a href="https://novo.checkbem.com.br/painel-consulta2.php" target="_blank">CHECKBEM</a></th>
+            </tr>
+	    <tr>
+            <th><a href="http://10.0.8.1/isize/adm/" target="_blank">ISIZE</a></th>
+            </tr>
+	    <tr>
+            <th><a href="https://centraldofuncionario.com.br/80921" target="_blank">PONTO</a></th>
+            </tr>
+	    <tr>
+            <th><a href="https://servicos.receita.fazenda.gov.br/servicos/cpf/consultasituacao/ConsultaPublica.asp" target="_blank">CPF RECEITA FEDERAL</a></th>
+            </tr>
+        </tbody>
+	</thead>
+    </table>
+</div>
+</header>
+<fieldset id="escala">
+    <legend>Escala</legend>
+    <label for="entrada">Entrada:</label>
+    <input type="time" id="entrada" onchange="salvarDados()">
+    <label for="pausa1">Pausa 1:</label>
+    <input type="time" id="pausa1" onchange="salvarDados()">
+    <label for="voltaPausa1">Volta:</label>
+    <input type="time" id="voltaPausa1" onchange="salvarDados()">
+    <label for="almoco">Almoço:</label>
+    <input type="time" id="almoco" onchange="salvarDados()">
+    <label for="voltaAlmoco">Volta:</label>
+    <input type="time" id="voltaAlmoco" onchange="salvarDados()">
+    <label for="pausa2">Pausa 2:</label>
+    <input type="time" id="pausa2" onchange="salvarDados()">
+    <label for="voltaPausa2">Volta:</label>
+    <input type="time" id="voltaPausa2" onchange="salvarDados()">
+    <label for="saida">Saída:</label>
+    <input type="time" id="saida" onchange="salvarDados()">
+</fieldset>
+<h1>Retorno</h1>
+<!-- Caixa de Texto -->
+<div id="caixaTexto">
+    <textarea id="textoCaixa" placeholder="Digite seu texto aqui..." rows="20"></textarea>
+    <div>
+        <button onclick="aumentarFonte()">Aumentar Fonte</button>
+        <button onclick="diminuirFonte()">Diminuir Fonte</button>
+        <button onclick="fecharCaixaTexto()">Fechar</button>
+    </div>
+</div>
+
+<div id="form">
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+    <label for="horaData">Hora e Data:</label>
+    <input type="datetime-local" id="horaData">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome">
+    <label for="observacao">Observação:</label>
+    <textarea id="observacao" rows="4"></textarea>
+    <button onclick="adicionarLigacao()">Adicionar Ligação</button>
+    <button onclick="limparLigacoes()">Limpar Todas as Ligações</button>
+</div>
+<div id="lista">
+    <!-- Lista de ligações será exibida aqui -->
+</div>
+<footer>
+	<div class="footer-content">
+            <span class="symbol">&copy;</span>
+            <span class="text">Criado por Jeann Moret</span>
+        </div>
+</footer>
+
+
+</body>
+</html>

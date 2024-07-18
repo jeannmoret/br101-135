@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle de Vendas</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <button
+        id="botaoResumo"
+        class="toggle-button"
+        onclick="toggleResumo(this)"
+      >
+        Resumo
+      </button>
+    </header>
+    <h1>Controle de Vendas</h1>
+    <div id="totalVendasMes">Total de Vendas no Mês: 0</div>
+    <div id="contadoresDiarios"></div>
+    <div id="formVendas">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nomeVendas" />
+      <label for="cpf">CPF:</label>
+      <input
+        type="text"
+        id="cpfVendas"
+        maxlength="11"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+      />
+      <label for="numero">Número:</label>
+      <input
+        type="text"
+        id="numeroVendas"
+        maxlength="11"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+      />
+      <label for="horaData">Hora e Data:</label>
+      <input type="datetime-local" id="horaDataVendas" />
+      <label for="plano">Plano:</label>
+      <select id="planoVendas">
+        <option value="Smart">Smart</option>
+        <option value="Ligações Ilimitadas">Ligações Ilimitadas</option>
+        <option value="Nubank">Nubank</option>
+      </select>
+      <button onclick="adicionarVenda()">Adicionar Venda</button>
+      <button onclick="limparVendas()">Limpar Todas as Vendas</button>
+      <button onclick="exportarVendas()">Exportar Vendas</button>
+      <input
+        type="file"
+        class="import-button"
+        accept=".json"
+        onchange="importarVendas(event)"
+      />
+    </div>
+    <div id="listaVendas">
+      <!-- Lista de vendas será exibida aqui -->
+    </div>
+  </body>
+</html>

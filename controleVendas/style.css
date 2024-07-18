@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centralizar todo o conteúdo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f3f3f3; /* Cor de fundo geral */
+    color: #333; /* Cor do texto padrão */
+}
+header {
+    height: 20px;
+    margin-top: 10px;
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    display: flex;
+    margin-left: 5px;
+}
+#formVendas {
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+label, input, button, select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="datetime-local"], textarea, select {
+    width: 100%; /* Largura dos inputs */
+    padding: 10px;
+    border: 1px solid #ccc; /* Cor da borda padrão */
+    border-radius: 5px; /* Borda arredondada */
+    box-sizing: border-box; /* Considerar padding e border no tamanho total */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+select {
+    appearance: none; /* Remove o estilo padrão do elemento */
+    background-color: white; /* Cor de fundo do select */
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none; /* Remove o outline ao focar */
+    border-color: #ED7117; /* Cor da borda ao focar */
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px; /* Borda arredondada */
+    padding: 10px 20px; /* Espaçamento interno */
+    color: #ffffff; /* Cor do texto */
+    background-color: #ED7117; /* Cor de fundo */
+    border: none; /* Remover borda */
+    transition: background-color 0.3s; /* Transição suave da cor de fundo */
+}
+
+button:hover {
+    background-color: #333; /* Cor de fundo ao passar o mouse */
+    color: #ED7117; /* Mudança de cor do texto ao passar o mouse */
+}
+
+#listaVendas {
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+
+.venda-item {
+    margin-bottom: 5px; /* Espaçamento entre os itens de venda */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center; /
+}
+
+.venda-item p {
+    width: 20vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 3px;
+}
+
+.venda-item .botoes {
+    display: flex;
+    justify-content: center;
+}
+
+.venda-item .botoes button {
+    margin-left: 10px; /* Espaçamento entre os botões */
+}
+
+.venda-title{
+    display: flex;
+}
+
+.venda-title h3 {
+    width: 15vh;
+
+}
+
+.contadores-diarios {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.venda-resumo {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    margin: 5px;
+    gap: 5px;
+}
+
+.venda-resumo p {
+    margin: 5px 0;
+}
+
+.color-venda-resumo {
+    color: red;
+    font-weight: bold;
+}
